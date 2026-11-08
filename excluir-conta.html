@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Excluir conta · Tênis Rondonópolis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: cabeçalho verde de quadra, página única com três telas (início, privacidade, exclusão de conta) trocadas pelo # da URL. */
+:root {
+  --verde: #1F4D3A;
+  --verde-fundo: #163A2B;
+  --saibro: #C2552E;
+  --bola: #DDEB4F;
+  --bg: #F6F5EF;
+  --card: #FFFFFF;
+  --fg: #17261F;
+  --suave: #5A6A62;
+  --linha: #DCE1DA;
+  --destaque-fundo: #E3EEE8;
+  --link: #A9472A;
+  --display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --corpo: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1A15; --card: #17261F; --fg: #E8EFEA; --suave: #9DB0A5; --linha: #28392F;
+    --destaque-fundo: #1C3328; --link: #F08A62; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1A15; --card: #17261F; --fg: #E8EFEA; --suave: #9DB0A5; --linha: #28392F;
+  --destaque-fundo: #1C3328; --link: #F08A62; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--corpo); font-size: 17px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--verde-fundo); z-index: 30; }
+a { color: var(--link); }
+:focus-visible { outline: 3px solid var(--bola); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 1.02; letter-spacing: .01em; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(30px, 5vw, 44px); text-transform: uppercase; }
+h3 { font-size: 24px; text-transform: uppercase; }
+p { margin: 0; }
+.rotulo { font-family: var(--corpo); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--saibro); }
+
+/* Cabeçalho */
+.topo { background: var(--verde-fundo); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; }
+.topo .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 10px; }
+.marca { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: .06em; text-transform: uppercase; }
+.marca svg { width: 40px; height: 40px; }
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a { color: #CFE0D7; text-decoration: none; font-weight: 600; font-size: 15px; padding: 8px 12px; border-radius: 999px; }
+nav a[aria-current="page"] { background: var(--bola); color: #1B2A12; }
+nav a:hover { color: #fff; }
+nav a[aria-current="page"]:hover { color: #1B2A12; }
+
+/* Início */
+.hero { background: var(--verde); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); color: #fff; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; padding-block: 56px 64px; }
+.hero h1 { font-size: clamp(54px, 10vw, 104px); text-transform: uppercase; }
+.hero h1 em { font-style: normal; color: var(--bola); display: block; }
+.hero p.sub { margin-top: 20px; font-size: 19px; color: #D5E5DC; max-width: 34ch; }
+.botoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.botao { display: inline-block; font-weight: 700; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-size: 16px; }
+.botao.primario { background: var(--bola); color: #1B2A12; }
+.botao.vazado { border: 2px solid #7FA390; color: #fff; }
+.botao.vazado:hover { border-color: #fff; }
+.escada { background: var(--verde-fundo); border-radius: 18px; padding: 22px; min-width: 0; }
+.escada .legenda { color: #9CC0AE; font-size: 13px; margin-bottom: 14px; }
+.degrau { display: flex; align-items: center; gap: 12px; padding: 9px 12px; border-radius: 10px; margin-bottom: 6px; font-weight: 600; color: #BFD3C8; background: rgba(255,255,255,.05); }
+.degrau b { font-family: var(--display); font-size: 22px; width: 30px; }
+.degrau.alvo { background: var(--bola); color: #1B2A12; }
+.degrau.voce { background: var(--saibro); color: #fff; }
+.degrau.fora { opacity: .45; }
+.degrau span.nota { margin-left: auto; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+
+section.bloco { padding-block: 64px 8px; }
+.bloco .cab { display: grid; gap: 10px; margin-bottom: 28px; max-width: 60ch; }
+.passos { list-style: none; counter-reset: p; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.passos li { counter-increment: p; background: var(--card); border: 1px solid var(--linha); border-radius: 14px; padding: 20px; min-width: 0; }
+.passos li::before { content: counter(p); display: block; font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--saibro); margin-bottom: 8px; }
+.passos strong { display: block; margin-bottom: 4px; }
+.passos span { color: var(--suave); font-size: 15px; display: block; }
+.duas { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.tabela { overflow-x: auto; background: var(--card); border: 1px solid var(--linha); border-radius: 14px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--linha); font-size: 16px; white-space: nowrap; }
+th { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--suave); }
+tr:last-child td { border-bottom: 0; }
+td.mais { color: #1E7A4F; font-weight: 700; }
+td.menos { color: #B23A2A; font-weight: 700; }
+:root[data-theme="dark"] td.mais { color: #6ED6A0; }
+:root[data-theme="dark"] td.menos { color: #FF8F7C; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) td.mais { color: #6ED6A0; } :root:not([data-theme="light"]) td.menos { color: #FF8F7C; } }
+.lista { display: grid; gap: 14px; }
+.item { background: var(--card); border: 1px solid var(--linha); border-radius: 14px; padding: 18px 20px; min-width: 0; }
+.item h3 { margin-bottom: 6px; }
+.item p { color: var(--suave); font-size: 16px; }
+.faixa { margin-top: 64px; background: var(--destaque-fundo); border-radius: 18px; padding: 28px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+.faixa h3 { font-size: 30px; }
+.faixa p { color: var(--suave); margin-top: 4px; }
+.selo { display: inline-block; background: var(--verde); color: #fff; font-weight: 700; font-size: 14px; padding: 10px 18px; border-radius: 999px; }
+
+/* Páginas de texto */
+.texto { max-width: 70ch; padding-block: 48px 8px; }
+.texto h1 { font-size: clamp(40px, 7vw, 64px); text-transform: uppercase; margin-bottom: 8px; }
+.texto .data { color: var(--suave); font-size: 14px; margin-bottom: 28px; }
+.texto h2 { font-size: 28px; margin: 36px 0 10px; }
+.texto p, .texto li { margin-bottom: 12px; }
+.texto ul { padding-left: 22px; margin: 0 0 12px; }
+.caixa { background: var(--destaque-fundo); border-radius: 14px; padding: 18px 20px; margin: 20px 0; }
+.caixa ol { margin: 8px 0 0; padding-left: 22px; }
+.caixa li { margin-bottom: 6px; }
+.copiavel { font-weight: 700; user-select: all; }
+
+footer { margin-top: 72px; border-top: 1px solid var(--linha); padding-block: 28px calc(36px + env(safe-area-inset-bottom, 0px)); color: var(--suave); font-size: 14px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+footer a { color: var(--suave); }
+
+[data-tela] { display: none; }
+[data-tela].ativa { display: block; }
+
+@media (max-width: 820px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 32px; padding-block: 40px 44px; }
+  .passos { grid-template-columns: 1fr 1fr; }
+  .duas { grid-template-columns: 1fr; }
+  .faixa { grid-template-columns: 1fr; }
+}
+@media (max-width: 460px) {
+  body { font-size: 16px; }
+  .passos { grid-template-columns: 1fr; }
+  .marca { font-size: 19px; }
+  nav a { padding: 7px 10px; font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="index.html" aria-label="Tênis Rondonópolis, início">
+      <svg viewBox="150 220 780 560" aria-hidden="true"><defs><clipPath id="bola"><circle cx="512" cy="512" r="330"/></clipPath></defs><circle cx="512" cy="512" r="330" fill="#C5D33A"/><circle cx="488" cy="488" r="318" fill="#DDEB4F" clip-path="url(#bola)"/><path d="M150,660 C250,660 300,650 318,612 L318,560 L446,560 L446,456 L574,456 L574,352 L702,352 C740,330 790,300 880,300" fill="none" stroke="#C2552E" stroke-width="58" stroke-linejoin="round" clip-path="url(#bola)"/></svg>
+      Tênis Rondonópolis
+    </a>
+    <nav aria-label="Principal">
+      <a href="index.html" data-nav="inicio">Início</a>
+      <a href="privacidade.html" data-nav="privacidade">Privacidade</a>
+      <a href="excluir-conta.html" data-nav="excluir-conta" aria-current="page">Excluir conta</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div data-tela="excluir-conta" class="ativa">
+    <div class="wrap texto">
+      <h1>Excluir a minha conta</h1>
+      <p class="data">Aplicativo Tênis Rondonópolis</p>
+
+      <p>Você pode excluir a sua conta e os seus dados pessoais a qualquer momento, direto no aplicativo.</p>
+
+      <div class="caixa">
+        <strong>Como excluir, passo a passo</strong>
+        <ol>
+          <li>Abra o aplicativo <strong>Tênis Rondonópolis</strong> e entre na sua conta.</li>
+          <li>Toque na aba <strong>Mais</strong>, no canto de baixo da tela.</li>
+          <li>Toque em <strong>Excluir minha conta</strong>.</li>
+          <li>Confirme. A exclusão é imediata e não pode ser desfeita.</li>
+        </ol>
+      </div>
+
+      <h2>O que acontece</h2>
+      <ul>
+        <li>O seu acesso (e-mail e senha) é apagado.</li>
+        <li>Seu nome é trocado por "Ex-jogador" e o seu telefone é removido.</li>
+        <li>Desafios em aberto são cancelados.</li>
+        <li>Os jogos que você disputou continuam no histórico dos adversários, sem identificar você, para não alterar o ranking dos outros jogadores.</li>
+        <li>Se você tinha pagamento automático, cancele também a autorização no seu banco ou no cartão. Registros de cobrança já emitidos podem ser mantidos pelo Asaas por obrigação legal.</li>
+      </ul>
+
+      <h2>Sem acesso ao aplicativo?</h2>
+      <p>Escreva para <span class="copiavel">luizcaldart@gmail.com</span> com o nome e o e-mail do cadastro, e a organização exclui a conta para você.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Tênis Rondonópolis · Rondonópolis, MT</span>
+    <span><a href="privacidade.html">Política de privacidade</a> · <a href="excluir-conta.html">Excluir conta</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
