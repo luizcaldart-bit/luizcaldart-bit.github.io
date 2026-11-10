@@ -3,36 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tênis Brasil</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#062C1B">
+<meta name="description" content="A liga de tênis da sua cidade: escolha a cidade e a categoria, desafie, jogue e suba no ranking de janeiro a dezembro.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tênis Ranking — Desafios e Ranking">
+<meta property="og:description" content="A liga de tênis da sua cidade: escolha a cidade e a categoria, desafie, jogue e suba no ranking de janeiro a dezembro.">
+<meta property="og:image" content="https://luizcaldart-bit.github.io/img/og.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<title>Tênis Ranking — Desafios e Ranking</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,800&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: cabeçalho verde de quadra, página única com três telas (início, privacidade, exclusão de conta) trocadas pelo # da URL. */
 :root {
-  --verde: #1F4D3A;
-  --verde-fundo: #163A2B;
-  --saibro: #C2552E;
-  --bola: #DDEB4F;
-  --bg: #F6F5EF;
+  --verde: #0A3F2B;
+  --verde-fundo: #062C1B;
+  --acento: #1E7B4B;
+  --bola: #E1F630;
+  --bg: #F5F8F3;
   --card: #FFFFFF;
   --fg: #17261F;
   --suave: #5A6A62;
   --linha: #DCE1DA;
-  --destaque-fundo: #E3EEE8;
-  --link: #A9472A;
+  --destaque-fundo: #E3EFE4;
+  --link: #1E7B4B;
   --display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
   --corpo: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0F1A15; --card: #17261F; --fg: #E8EFEA; --suave: #9DB0A5; --linha: #28392F;
-    --destaque-fundo: #1C3328; --link: #F08A62; color-scheme: dark;
+    --destaque-fundo: #1C3328; --link: #E1F630; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0F1A15; --card: #17261F; --fg: #E8EFEA; --suave: #9DB0A5; --linha: #28392F;
-  --destaque-fundo: #1C3328; --link: #F08A62; color-scheme: dark;
+  --destaque-fundo: #1C3328; --link: #E1F630; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -46,40 +56,40 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 a { color: var(--link); }
 :focus-visible { outline: 3px solid var(--bola); outline-offset: 2px; border-radius: 4px; }
 .wrap { max-width: 1040px; margin: 0 auto; }
-h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 1.02; letter-spacing: .01em; text-wrap: balance; margin: 0; }
+h1, h2, h3 { font-family: var(--display); font-weight: 800; font-style: italic; line-height: 1.02; letter-spacing: .01em; text-wrap: balance; margin: 0; }
 h2 { font-size: clamp(30px, 5vw, 44px); text-transform: uppercase; }
 h3 { font-size: 24px; text-transform: uppercase; }
 p { margin: 0; }
-.rotulo { font-family: var(--corpo); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--saibro); }
+.rotulo { font-family: var(--corpo); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--acento); }
 
 /* Cabeçalho */
 .topo { background: var(--verde-fundo); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; }
 .topo .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 10px; }
-.marca { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: .06em; text-transform: uppercase; }
-.marca svg { width: 40px; height: 40px; }
+.marca { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-family: var(--display); font-weight: 800; font-style: italic; font-size: 26px; letter-spacing: .01em; }
+.marca img { width: 40px; height: auto; display: block; }
 nav { display: flex; gap: 4px; flex-wrap: wrap; }
 nav a { color: #CFE0D7; text-decoration: none; font-weight: 600; font-size: 15px; padding: 8px 12px; border-radius: 999px; }
-nav a[aria-current="page"] { background: var(--bola); color: #1B2A12; }
+nav a[aria-current="page"] { background: var(--bola); color: #062C1B; }
 nav a:hover { color: #fff; }
-nav a[aria-current="page"]:hover { color: #1B2A12; }
+nav a[aria-current="page"]:hover { color: #062C1B; }
 
 /* Início */
 .hero { background: var(--verde); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); color: #fff; }
 .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; padding-block: 56px 64px; }
 .hero h1 { font-size: clamp(54px, 10vw, 104px); text-transform: uppercase; }
-.hero h1 em { font-style: normal; color: var(--bola); display: block; }
+.hero h1 em { font-style: italic; color: var(--bola); display: block; }
 .hero p.sub { margin-top: 20px; font-size: 19px; color: #D5E5DC; max-width: 34ch; }
 .botoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 .botao { display: inline-block; font-weight: 700; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-size: 16px; }
-.botao.primario { background: var(--bola); color: #1B2A12; }
+.botao.primario { background: var(--bola); color: #062C1B; }
 .botao.vazado { border: 2px solid #7FA390; color: #fff; }
 .botao.vazado:hover { border-color: #fff; }
 .escada { background: var(--verde-fundo); border-radius: 18px; padding: 22px; min-width: 0; }
 .escada .legenda { color: #9CC0AE; font-size: 13px; margin-bottom: 14px; }
 .degrau { display: flex; align-items: center; gap: 12px; padding: 9px 12px; border-radius: 10px; margin-bottom: 6px; font-weight: 600; color: #BFD3C8; background: rgba(255,255,255,.05); }
 .degrau b { font-family: var(--display); font-size: 22px; width: 30px; }
-.degrau.alvo { background: var(--bola); color: #1B2A12; }
-.degrau.voce { background: var(--saibro); color: #fff; }
+.degrau.alvo { background: var(--bola); color: #062C1B; }
+.degrau.voce { background: var(--acento); color: #fff; }
 .degrau.fora { opacity: .45; }
 .degrau span.nota { margin-left: auto; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 
@@ -87,7 +97,7 @@ section.bloco { padding-block: 64px 8px; }
 .bloco .cab { display: grid; gap: 10px; margin-bottom: 28px; max-width: 60ch; }
 .passos { list-style: none; counter-reset: p; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .passos li { counter-increment: p; background: var(--card); border: 1px solid var(--linha); border-radius: 14px; padding: 20px; min-width: 0; }
-.passos li::before { content: counter(p); display: block; font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--saibro); margin-bottom: 8px; }
+.passos li::before { content: counter(p); display: block; font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--acento); margin-bottom: 8px; }
 .passos strong { display: block; margin-bottom: 4px; }
 .passos span { color: var(--suave); font-size: 15px; display: block; }
 .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
@@ -149,9 +159,9 @@ footer a { color: var(--suave); }
 <body>
 <header class="topo">
   <div class="wrap">
-    <a class="marca" href="index.html" aria-label="Tênis Brasil, início">
-      <svg viewBox="150 220 780 560" aria-hidden="true"><defs><clipPath id="bola"><circle cx="512" cy="512" r="330"/></clipPath></defs><circle cx="512" cy="512" r="330" fill="#C5D33A"/><circle cx="488" cy="488" r="318" fill="#DDEB4F" clip-path="url(#bola)"/><path d="M150,660 C250,660 300,650 318,612 L318,560 L446,560 L446,456 L574,456 L574,352 L702,352 C740,330 790,300 880,300" fill="none" stroke="#C2552E" stroke-width="58" stroke-linejoin="round" clip-path="url(#bola)"/></svg>
-      Tênis Brasil
+    <a class="marca" href="index.html" aria-label="Tênis Ranking, início">
+      <img src="img/simbolo.png" alt="" width="40" height="41">
+      Tênis Ranking
     </a>
     <nav aria-label="Principal">
       <a href="index.html" data-nav="inicio" aria-current="page">Início</a>
@@ -259,7 +269,7 @@ footer a { color: var(--suave); }
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Tênis Brasil</span>
+    <span>© 2026 Tênis Ranking</span>
     <span><a href="privacidade.html">Política de privacidade</a> · <a href="excluir-conta.html">Excluir conta</a></span>
   </div>
 </footer>
