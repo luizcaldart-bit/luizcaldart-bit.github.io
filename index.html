@@ -182,7 +182,7 @@ footer a { color: var(--suave); }
           <h1 style="margin-top: 14px">Suba um degrau<em>a cada jogo.</em></h1>
           <p class="sub">Desafie quem está até 4 posições acima, jogue, registre o placar no app e veja o ranking se mover.</p>
           <div class="botoes">
-            <a class="botao primario" href="app/">Abrir o app</a>
+            <a class="botao primario" href="app/" data-evento="abrir_app_topo">Abrir o app</a>
             <a class="botao vazado" href="#como-funciona" data-rolar="como-funciona">Como funciona</a>
           </div>
         </div>
@@ -261,7 +261,7 @@ footer a { color: var(--suave); }
           <h3>O aplicativo</h3>
           <p>Ranking da sua cidade, desafios, placar, estatísticas, foto de perfil e mensalidade em um só lugar. Funciona no navegador do celular e do computador. Instalar no Android e no iPhone: em breve.</p>
         </div>
-        <a class="botao primario" href="app/" style="background: var(--verde); color: #fff;">Abrir o app no navegador</a>
+        <a class="botao primario" href="app/" data-evento="abrir_app_final" style="background: var(--verde); color: #fff;">Abrir o app no navegador</a>
       </div>
     </div>
   </div>
@@ -275,6 +275,7 @@ footer a { color: var(--suave); }
     <span><a href="privacidade.html">Política de privacidade</a> · <a href="excluir-conta.html">Excluir conta</a></span>
   </div>
 </footer>
+<script src="rastreio.js" async></script>
 <script>
 document.querySelectorAll("[data-rolar]").forEach(function (a) {
   a.addEventListener("click", function (e) {
